@@ -1,0 +1,59 @@
+{% extends 'menu.html' %}
+
+{% block title %}
+
+    <title>tagcloud</title>
+
+{% endblock%}
+
+{% block content %}
+{% load staticfiles %}
+	
+<meta charset="UTF-8">
+<!-- <h1>mi texto es {{lista}} </h1>  -->
+
+
+ 	   <div class="form-group",class="btn btn-success">
+		<form method="post" >
+		    {% csrf_token %}
+		    {{ form}}
+		    
+		</form>		
+	   </div>  
+
+
+<div id="tagcloud" style="width: 600px; height: 350px;">
+
+
+	<script src="{% static 'js/jquery.min.js'%}" ></script>
+	<script src="{% static 'js/jqcloud-1.0.4.js'%}"></script>
+	<link rel="stylesheet" href="{% static 'css/jqcloud.css'%}">
+
+<script type="text/javascript">
+var a ={{obj| safe}};
+var b ={{array_para_hash| safe}};
+
+
+      $(function() {
+        // When DOM is ready, select the container element and call the jQCloud method, passing the array of words as the first argument.
+        $("#example").jQCloud(a);
+      });
+
+	      $(function() {
+        // When DOM is ready, select the container element and call the jQCloud method, passing the array of words as the first argument.
+        $("#otrotag").jQCloud(b);
+      });
+
+ </script>
+
+<script>
+
+</script>
+  <h1> PALABRAS MAS USADAS EN LOS TUITS</h1>
+  <div id="example" style="width: 1000px; height: 600px;"></div> 
+  <h1> Hastag mas usados</h1>
+  <div id="otrotag" style="width: 1000px; height: 600px;"></div> 
+</div>
+
+
+{% endblock%}

@@ -1,0 +1,93 @@
+ * {
+ 	margin:0;
+ 	padding: 0;
+ }
+ /* Estilos genrales*/
+ /* el .boton me define el color, tamaño y color de los botones */
+ .boton {
+ 	background: #7f8c8d;
+ 	color: #fff;
+ 	display: inline-block;
+ 	font-size:20px;
+ 	margin: 20px;
+ 	padding: 10px 0px;
+ 	text-align: center;
+ 	width: 200px; 
+ 	text-decoration: none;
+ 	box-shadow: 0px 3px 0px #373c3c;
+ }
+ /*Define un nuevo tamaño de boton*/
+  .boton2 {
+ 	background: #7f8c8d;
+ 	color: #fff;
+ 	display: inline-block;
+ 	font-size:20px;
+ 	margin: 20px;
+ 	padding: 10px 0px;
+ 	text-align: center;
+ 	width: 50px; 
+ 	text-decoration: none;
+ 	box-shadow: 0px 3px 0px #373c3c;
+ }
+/*el .boton.blue me define un boton de color azul ysombra*/
+.boton.blue {
+	background: #3498db;
+	box-shadow: 0px 3px 0px #2E2EFE;
+}
+/*el .boton.amarillo me define un boton de color amarillo y el tamaño de la linea que esta debajo*/
+.boton.amarillo {
+	background: #F4FA58;
+	box-shadow: 0px 2px 0px #FFBF00;
+}
+/*el boton.negro define color y borde*/
+.boton.negro  {
+	background: #000000;
+	box-shadow: 0px 2px 0px #FFBF00;
+}
+/*el boton.otro define ualquier color para prueba color y borde*/
+.boton.otro  {
+	background: #FE2E9A;
+	box-shadow: 0px 2px 0px #CC2EFA;
+}
+/*colores para el boton 2*/
+.boton2.blue {
+	background: #3498db;
+	box-shadow: 0px 3px 0px #2E2EFE;
+}
+/*el .boton.amarillo me define un boton de color amarillo y el tamaño de la linea que esta debajo*/
+.boton2.amarillo {
+	background: #F4FA58;
+	box-shadow: 0px 2px 0px #FFBF00;
+}
+/*el boton.negro define color y borde*/
+.boton2.negro  {
+	background: #000000;
+	box-shadow: 0px 2px 0px #FFBF00;
+}
+/*el boton.otro define ualquier color para prueba color y borde*/
+.boton2.otro  {
+	background: #FE2E9A;
+	box-shadow: 0px 2px 0px #CC2EFA;
+}
+/* Tamaños de botones*/
+.boton.medio {
+	width: 450px;
+}
+.boton2.peque {
+	width: 150px;
+}
+.boton.largo {
+	width: 550px;
+}
+
+/*Efectos en los tamaños*/
+/*El boton.radio hace que las esquinas del boton sean circulares */
+.boton.radio {
+	border-radius: 30px;
+}
+/*El boton.radio hace que el boton se haga mas pequeño*/
+.boton:hover {
+	box-shadow: 0px 0px 0px;
+	padding: 12px;
+}
+

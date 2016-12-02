@@ -1,0 +1,9 @@
+body_pregunta 
+body_respuestas
+
+
+bd.peliculas_en_preguntas
+bd.peliculas_en_respuestas
+
+bd.tuit_respuestas2
+bd.tuit_preguntas2

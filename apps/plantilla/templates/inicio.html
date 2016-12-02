@@ -1,0 +1,114 @@
+{% extends 'menu.html' %}
+{% block title %}
+		<title>INICIO</title>
+{% endblock%}
+
+
+{% block content %}
+	
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<script type="text/javascript">
+			jQuery(document).ready(function($) {
+				$(".scroll").click(function(event){		
+					event.preventDefault();
+					$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+				});
+			});
+		</script>
+		 <!---- start-smoth-scrolling---->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+		</script>
+		<!----webfonts--->
+		<link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
+		<!---//webfonts--->
+		<!----start-top-nav-script---->
+		<script>
+			$(function() {
+				var pull 		= $('#pull');
+					menu 		= $('nav ul');
+					menuHeight	= menu.height();
+				$(pull).on('click', function(e) {
+					e.preventDefault();
+					menu.slideToggle();
+				});
+				$(window).resize(function(){
+	        		var w = $(window).width();
+	        		if(w > 320 && menu.is(':hidden')) {
+	        			menu.removeAttr('style');
+	        		}
+	    		});
+			});
+		</script>
+		<!----//End-top-nav-script---->
+	</head>
+
+			
+	<body>
+		
+		<!----- start-header---->
+		
+			
+
+
+			<!----- //End-header---->
+			<!----banner---->
+			<div class="banner">
+				<!---- banner-info ---->
+				<div class="banner-info text-center">
+					<p>ANALISIS DE INFORMACION SOBRE BIGDATA </p>
+					<h1>SOLUCION TALLER 4</h1>
+					<span>Universidad de los Andes 2016</span>
+					<label> </label>
+					<div class="clearfix"> </div>
+					<a class="bannner-btn" href="#">VERMAS</a>
+				</div>
+				<!-- //banner-info ---->
+			</div>
+			<!--//INTEGRANTES DEL GRUPO---->
+			<div id="about" class="about">
+				<div class="about-head text-center">
+					<div class="container">
+						<h2>GRUPO No:14</h2>
+						<span> </span>
+						<p> Este Grupo esta constituido por :<label>Monica, Pedro y Francy</label> encargados del desarrollo del Taller No:4</p>
+					</div>
+				</div>
+
+				<div class="about-grids text-center">
+					<div class="container">
+						<div class="col-md-3 about-grid">
+							<span class="light-icon"> </span>
+							<h3><a href="#">Claudia Jimenez</a></h3>
+							<p>Profesora del curso de Informacion sobre Big Data</p>
+							<label> </label>
+						</div>
+						<div class="col-md-3 about-grid">
+							<span class="pen-icon"> </span>
+							<h3><a href="#"> Pedro Diaz</a></h3>
+							<p>Estudiante de Maestria en Ingenieria de la Informacion MINE.</p>
+							<label> </label>
+						</div>
+						<div class="col-md-3 about-grid">
+							<span class="cog-icon"> </span>
+							<h3><a href="#">Monica Duran</a></h3>
+							<p>Estudiante de Maestria en Ingenieria de la Informacion MINE.</p>
+							<label> </label>
+						</div>
+						<div class="col-md-3 about-grid">
+							<span class="mon-icon"> </span>
+							<h3><a href="#">Francy Pineda </a></h3>
+							<p>Estudiante de Maestria en Ingenieria de la Informacion MINE.</p>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+				</div>
+			</div>
+				
+				
+{% endblock %}					
+							
+	
+	
+
+

@@ -1,0 +1,11 @@
+[15:51, 23/10/2016] Monuca Duran: db.tweets.find({$and:[{tweet:{$regex:”JuanManSantos”}},{sentimiento:”NEU”}]}).count()                        
+[15:51, 23/10/2016] Monuca Duran: con o sin @ da el mismo resultado                        
+[15:51, 23/10/2016] Monuca Duran: P                        
+[15:51, 23/10/2016] Monuca Duran: N                        
+[15:51, 23/10/2016] Monuca Duran: NEU                        
+[15:51, 23/10/2016] Monuca Duran: P+                        
+[15:51, 23/10/2016] Monuca Duran: P-
+
+
+
+sentimiento_p= conn.db.polaridad_tuits.find_one({"$and":[{"tweet":{"$regex":"JuanManSantos"}},{"sentimiento":"NEU"}]}).count()                        

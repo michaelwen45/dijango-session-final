@@ -1,0 +1,66 @@
+	
+{% load staticfiles %}
+<!DOCTYPE HTML>
+<html>
+	<head>
+
+		{% block title %}
+		{% endblock%}
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />		
+		<link rel="stylesheet" href="{% static 'css/bootstrap.css'%}">
+		<link rel="stylesheet" href="{% static 'css/style.css'%}">
+		<!-- estaticos del grafo -->
+		<link rel="stylesheet" href="{% static 'css/main.css'%}">
+				<script type="text/javascript" src="/static/js/vis.js"></script>
+		<script type="text/javascript" src="/static/js/jquery-3.1.0.js"></script>
+ 		<link href="/static/css/vis.css" rel="stylesheet" type="text/css" />
+		<!-- estaticos del grafo -->
+		<script src="{% static 'js/jquery.min.js'%}"></script>
+		<!--Funcionalidaddes para leaflef -->
+		<link   rel="stylesheet"   href="http://cdn.leafletjs.com/leaflet-0.7/leaflet.css"  />
+    	<script type="text/javascript" src="/static/js/localizaciones.js">></script>
+    	<script type="text/javascript" src="/static/js/organizaciones.js">></script>
+    	<script type="text/javascript" src="/static/js/personas.js">></script>
+
+		
+		<div id="home" class="header">
+					<div class="top-header">
+						<div class="container">
+						<div class="logo">
+							<a href="#"><img src="static/images/andes3.png" title="uniandes" /></a>
+						</div>
+						<!----start-top-nav---->
+						 <nav class="top-nav">
+							<ul class="top-nav">
+								
+								<li><a href="/" class="scroll">INICIO</a><span> </span></li>
+								<li><a href="/#about" class="scroll">Grupo 14 </a></li>
+								<!--
+								<li><a href="/grafo" >Taller 2</a></li>
+								<li><a href="/Taller3" >Taller 3 </a><span> </span></li>
+								<li><a href="/tagcloud" >TagCloud</a></li>
+								<li><a href="/punto3" >Punto3</a></li>  -->
+								<li><a href="/taller4_parte1" >Questions</a></li>
+								<li><a href="/taller4_parte5">Relaciones</a></li>
+								<li><a href="/taller4_parte2" >TagCloud</a></li>
+								<li><a href="/taller4_parte3">GeoPlaces</a></li>
+								<li><a href="/taller4_parte4">DemoVivo</a></li>
+								<div class="clearfix"> </div>
+							</ul>
+							<a href="#" id="pull"><img src="static/images/nav-icon.png" title="menu" /></a>
+						</nav>
+						<div class="clearfix"> </div>
+						</div>
+					</div>
+			</div>
+			<div id="contenido">
+			{% block content %}
+			{% endblock%}
+			</div>
+
+</head>
+</html>					
+     
+		
+
+	

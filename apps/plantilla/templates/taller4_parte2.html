@@ -1,0 +1,91 @@
+{% extends 'menu.html' %}
+
+{% block title %}
+
+    <title>tagcloud</title>
+
+{% endblock%}
+
+{% block content %}
+{% load staticfiles %}
+	
+<meta charset="UTF-8">
+<!-- <h1>mi texto es {{lista}} </h1>  -->
+    <div class="form-group",class="btn btn-success">
+		<form method="post" >
+		    {% csrf_token %}
+		    {{ form}}
+		    
+		</form>		
+	   </div>  
+
+	<script src="{% static 'js/jquery.min.js'%}" ></script>
+	<script src="{% static 'js/jqcloud-1.0.4.js'%}"></script>
+	<link rel="stylesheet" href="{% static 'css/jqcloud.css'%}">
+
+<script type="text/javascript">
+var a ={{obj| safe}};
+var b ={{array_para_hash| safe}};
+
+
+      $(function() {
+        // When DOM is ready, select the container element and call the jQCloud method, passing the array of words as the first argument.
+        $("#example").jQCloud(a);
+      });
+
+	      $(function() {
+        // When DOM is ready, select the container element and call the jQCloud method, passing the array of words as the first argument.
+        $("#otrotag").jQCloud(b);
+      });
+
+ </script>
+
+  <h3> Palabras mas relevantes usadas en las peliculas</h3>
+  <div id="example" style="width: 1000px; height: 600px;"></div> 
+
+<div class="row-fluid">
+    {% for icon in consulta_peliculas %}
+
+    <div class="col-xs-12 col-sm-8 col-md-6" id="col1">
+
+    <h1>TEXTO DE H1</h1>
+
+
+    <script>
+        document.write('<div class="col-xs-12 col-sm-8 col-md-6" id="col1">');
+        var temp = "{{ icon.Title}}";
+        var image= 'static/images/tagcloud/'+temp+'.png'
+        var image = new Image();
+
+        image.src = "/static/images/tagcloud/{{icon.Title}}.png";
+
+         image.onload = function () {
+              //console.info("Imagen si esta !");
+              esta=1;
+              document.write('<div class="row-fluid" >');
+              document.write('<div class="col-xs-12 col-sm-8 col-md-6" id="col1">');
+              document.write('<h1 align=center >')
+              document.write("Titulo de la pelicula:{{icon.Title}}")
+              document.write('</h1>')
+              document.write('<img src="static/images/tagcloud/{{icon.Title}}.png"  height="600px" width="600px">')
+              document.write('</div>');
+              document.write('</div>');
+
+
+            }
+         image.onerror = function () {
+               //console.error("La imagen no esta");
+               esta=0;
+               //console.log(esta)
+            }
+
+        document.write('</div>');
+
+    </script>
+    </div>
+    {% endfor %}
+
+
+  </div>
+
+{% endblock%}

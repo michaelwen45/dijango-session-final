@@ -1,0 +1,64 @@
+
+{% extends 'menu.html' %}
+
+{% block title %}
+    <title>taller4</title>
+{% endblock%}
+
+{% block content %}
+
+<div id="pregunta">
+<table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Titulo</th>
+                <th>Tags</th>
+                <th>Contenido de la pregunta</th>
+            </tr>
+            </thead>
+            <tbody> 
+{% for icon in consulta1 %}
+<tr>
+<td>{{ icon.items.0.title|safe}}</td>
+ <td> 
+    {% for icon2 in icon.items.0.tags %}
+    <p>*{{icon2}}<br></p>
+    {% for icon3 in consulta2 %}
+        {% if iconn2 == iconn2 %}
+        <p>{{icon.items.0.question_id}}</p>
+            
+        {% endif %}
+    {% endfor %} 
+    {% endfor %} </td>
+
+<td id="pregunta">{{ icon.items.0.body|safe}}<br> Link: <a href={{icon.items.0.link|safe}}>Click Aqui para verificar la información</a> </td>
+</tr>
+{% endfor %}
+
+</tbody>
+</table>
+</div>
+
+<div class="col-md-12 portfolio-item">
+            <hr>
+            <div class="pagination">
+                <span class="step-links">
+                    {% if infoPage.page > 1 %}
+                        <a href="?page={{ infoPage.previous_page_number }}">anterior</a>
+                    {% endif %}
+
+                    <span class="current">
+                        Pág. {{ infoPage.page }} de {{ infoPage.num_pages }}.
+                    </span>
+
+                    {% if infoPage.page < infoPage.num_pages %}
+                        <a href="?page={{ infoPage.next_page_number }}">siguiente</a>
+                    {% endif %}
+                </span>
+            </div>
+        </div>
+
+    </div>
+
+
+{% endblock%}

@@ -1,0 +1,1 @@
+var personas =[['Nelson Mandela Pregunta #61248:Why does the bodyguard say there is no time to move Mandela out of the stadium?', -31.8061, 28.6146], ['Abraham Pregunta #62099:How did the plan work out at the end?', 31.5247, 35.1107], ['Marco Polo Pregunta #62313:What happened to Marco asking the Khan for Kokachin?', 45.4373, 12.3455]]

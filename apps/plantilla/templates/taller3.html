@@ -1,0 +1,165 @@
+
+{% extends 'menu.html' %}
+
+{% block title %}
+    <title>taller3</title>
+{% endblock%}
+
+{% block content %}
+{% load staticfiles %}
+
+       <!--
+    <img src="/static/images/underconstruction.jpg">  -->
+
+	<script src="{% static 'js/loader.js'%}"></script>
+	<script type="text/javascript">
+
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+      
+	  function drawChart() {
+
+		var data = new google.visualization.DataTable();
+         data.addColumn('string', 'terminos');  
+         data.addColumn('number', 'Seguidores y amigos');
+     
+         data.addRows([
+           ['Seguidores', {{numero_seguidores}}],
+           ['Amigos', {{amigos}}]
+         ]);
+
+		var options = { title: '{{nombre_usuario}}',
+        legend: { position: 'top', maxLines: 3 },
+		colors: ['#5C3292', '#1A8763'],
+		interpolateNulls: false,
+		vAxis: {scaleType: 'mirrorLog' }
+
+		};
+
+        var chart = new google.visualization.ColumnChart(document.getElementById('histogra_seguidores_amigos_por_usuario'));
+ 		chart.draw(data, options);
+      }
+    </script>
+
+
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          ['N-',     {{num_sent_muyn}}],
+          ['N',      {{num_sent_n}}],
+          ['NEUTRO',  {{num_sent_neu}}],
+          ['P', {{num_sent_p}}],
+          ['P+',    {{num_sent_muyp}}]
+        ]
+
+		);
+
+        var options = {
+          title: 'Sentimientos de los tweets con muestra de {{total_polarida}}',
+          is3D: true,
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('torta_porcentajes_tuitspublicados'));
+
+        chart.draw(data, options);
+      }
+    </script>    
+
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data =  google.visualization.arrayToDataTable([
+           [' 2014', '19 Octubre', '22 Octubre', '24 Octubre', '25 Octubre', '26 Octubre', '27 Octubre', '28 Octubre', '29 Octubre'],
+			['2016',{{historico19}},{{historico22}},{{historico24}},{{historico25}},{{historico26}},{{historico27}},{{historico28}},{{historico29}}]
+
+        ]);
+
+        var options = {
+          chart: {
+            title: 'Porcentaje por tweets por Hashtag',
+
+          },
+          bars: 'horizontal' // Required for Material Bar Charts.
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('Visual2'));
+
+        chart.draw(data, options);
+      }
+    </script> 
+
+
+
+    <script type="text/javascript"></script>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
+    <div id="taller3">
+<div class="row">
+    <div class="col-md-6">
+        <br>
+ 	   <div class="form-group",class="btn btn-success">
+		<form method="post" >
+		    {% csrf_token %}
+		    {{ form}}
+		    <br>
+		</form>		
+	   </div> 
+    </div> 
+
+    <div class="col-md-6">
+		 <div id="histogra_seguidores_amigos_por_usuario" style="width: 600px; height: 350px;"></div>
+	</div> 
+</div> 
+
+<!--***************************************AQUI ESTA LA SEGUNDA FILA DE LA VISUALIZACION*****************************-->
+<div class="row">
+    <div class="col-md-6">
+		<br>
+		<label >Porcentaje de Tweets Publicados P,N,MP, MN, NEUTRO</label>
+    
+    <div id="torta_porcentajes_tuitspublicados" style="width: 800px; height: 350px;"></div>
+	</div>
+
+
+    <div class="col-md-6">
+    <div class="form-group">
+		<form action="otro" method="post">
+			<label for="otro">Historico de seguidores por usuario </label>
+	
+		</form>
+    </div> 
+    <div id="Visual2" style="width: 900px; height: 400px;"></div>
+    </div>
+</div>
+
+    <script type="text/javascript">
+         function cargar1(mynodes, myedges){
+            // create an array with nodes
+            var nodes = new vis.DataSet(mynodes);
+
+            // create an array with edges
+            var edges = new vis.DataSet(myedges);
+
+            // create a network
+            var container = document.getElementById('migrafo');
+            var data = {
+                nodes: nodes,
+                edges: edges
+            };
+            var options = {};
+            var network = new vis.Network(container, data, options);
+
+        }
+
+
+
+
+    </script>
+
+
+    </div>
+
+{% endblock%}

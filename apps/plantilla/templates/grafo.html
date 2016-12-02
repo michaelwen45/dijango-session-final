@@ -1,0 +1,108 @@
+{% extends 'menu.html' %}
+
+{% block title %}
+    <title>GRAFO</title>
+{% endblock%}
+
+{% block content %}
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
+    <script>
+        $(function () {
+            $("#datepicker").datepicker({ dateFormat: 'yy/mm/dd' });
+        });
+        $(function () {
+            $("#datepicker1").datepicker({ dateFormat: 'yy/mm/dd' });
+        });
+    </script>
+    <br>
+    <form action="" >
+
+        <div class="container">
+            <!-- Example row of columns -->
+            <div class="row">
+                <div class="col-md-6">
+
+                    <div class="form-group">
+                        <label for="usr">Name:</label>
+                        <input type="text" class="form-control" id="n1">
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="usr">Country:</label>
+                        <input type="text" class="form-control" id="ok">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="usr">Date Start:</label>
+                        <input type="text" class="form-control" id="datepicker">
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="usr">Date Finish :</label>
+                        <input type="text" class="form-control" id="datepicker1">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-8">
+                    <input id="bpintar" class="btn btn-success" type="button" value="Submit" onclick="javascript:click2()">
+                </div>
+            </div>
+
+    </form>
+
+
+    <!--<input id="bpintar" type="button" value="Hacer el Grafo" onclick="javascript:click2()"> -->
+
+    <script type="text/javascript">
+
+        function pintar(mynodes, myedges){
+            // create an array with nodes
+            var nodes = new vis.DataSet(mynodes);
+
+            // create an array with edges
+            var edges = new vis.DataSet(myedges);
+
+            // create a network
+            var container = document.getElementById('migrafo');
+            var data = {
+                nodes: nodes,
+                edges: edges
+            };
+            var options = {};
+            var network = new vis.Network(container, data, options);
+
+        }
+
+        function click2(){
+            $.ajax({url:"/graph",
+                type: 'GET',
+		cache: false,
+                data: { country: document.getElementById("ok").value,name: document.getElementById("n1").value,fecha_inicio:document.getElementById("datepicker").value,fecha_fin:document.getElementById("datepicker1").value} ,
+                success: function(result){
+                    console.log(result);
+                    nodes= result.nodes;
+                    edges=result.edges;
+                    pintar(nodes, edges);
+                }
+            });
+        }
+    </script>
+    <div id="migrafo"></div>
+
+    <!--CAMBIOS PARA EL GRAFO sudo scl enable python27 bash    jsonresponse ponerlo en una vista en una vista de jdjangpo -->
+
+
+    <!--FIN  DE LOS CAMBIOS  PARA EL GRAFO -->
+
+{% endblock%}
