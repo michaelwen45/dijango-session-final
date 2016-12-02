@@ -55,11 +55,11 @@ def taller4_parte1(request): #ESTA VISTA ME MUETRA LAS PREGUNTAS CON SU INFORMAC
     movies_r= coleccion_con_movies_respuestas.find({"items.0.question_id": { '$in': datos} })
     tuits= coleccion_con_tuitpregunta.find({"items.0.question_id": { '$in': datos} })
     tuits2= coleccion_con_tuitpregunta.find({"items.0.question_id": { '$in': datos} })
-
+    sema= coleccion_con_tuitpregunta.find({"items.0.question_id": { '$in': datos} })
 
     print movies
     infoPage={'countPage': count, 'num_pages': count/numero_preguntas_pagina + 1, 'page':PAGE,'previous_page_number':PAGE-1, 'next_page_number':PAGE+1}
-    return render(request, "taller4_parte1.html",{"consulta1":consulta1, "datta":datta,"movies":movies,"movies_r":movies_r,"tuits":tuits ,"tuits2":tuits2 ,"infoPage":infoPage})
+    return render(request, "taller4_parte1.html",{"consulta1":consulta1, "datta":datta,"movies":movies,"movies_r":movies_r,"tuits":tuits ,"tuits2":tuits2 ,"sema":sema ,"infoPage":infoPage})
 
 
 

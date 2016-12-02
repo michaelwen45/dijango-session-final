@@ -293,6 +293,30 @@
     </div>
 
 
+    <div id="tuits_pr">
+    <div class="row-fluid">
+        <div class="col-xs-12 col-sm-12 col-md-12" id="titulo">
+            Semantica
+            <div id="line"><hr  style="" /></div>
+        </div>
+    </div>
+
+    <div class="row-fluid">
+      <div class="col-xs-12 col-sm-12 col-md-12" id="tuits">
+        {% for semantico in sema %}
+                <p>*<a href={{semantico.Semantica0}} ><u>{{semantico.Semantica0}}</u></a></p>
+                <p>*<a href={{semantico.Semantica1}} ><u>{{semantico.Semantica1}}</u></a></p>
+                <p>*<a href={{semantico.Semantica2}} ><u>{{semantico.Semantica2}}</u></a></p>
+                <p>*<a href={{semantico.Semantica3}} ><u>{{semantico.Semantica3}}</u></a></p>
+
+
+        {% endfor %}
+
+    </div>
+
+    </div>
+
+
 </div>
 
 
