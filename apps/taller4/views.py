@@ -116,9 +116,9 @@ def taller4_parte2(request):
     campo1="text"
     campo2="weight"
     quitar=["https"]
-    for p in  lista.most_common(50):
+    for p in  lista.most_common(300):
         #print p[0]      
-        if p[0]not in ('Plot',"the","Plot'","the "):
+        if p[0]not in ("him","him ","two","two ","other ","other","set","set ","them ","them","short ","can ","But ","But","first","first ","get","get ","was","was ","all","all ","while","while ","its","its ","After","After ","wants","wants ","how","how ","When ","takes ","takes","two","two ","This","This ","","have","have ","out","one","out ","one ","into ","into","not","will","When","this ","this","not ","will ","through","through ","which","which ","about ","about","they","they ","when","when ","who ","what ","what ","that ","that","she ","she","but","but ","they",'Plot',"the","Plot'","the ","and ","his ","with ","who","from","the","that","for","her","about","hism","was","out","The","her ","from ","are", "has ","for ","The ","The","are ","their "):
            # print p[0]+":"
             b.extend([{campo1:p[0],campo2:p[1]}])
 
